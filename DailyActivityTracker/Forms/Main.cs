@@ -19,7 +19,7 @@ namespace DailyActivityTracker.Forms
 
         private void Main_Load(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             Login log = new Login();
             log.ShowDialog();
         }

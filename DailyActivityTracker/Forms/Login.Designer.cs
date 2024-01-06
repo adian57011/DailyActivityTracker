@@ -74,6 +74,7 @@ namespace DailyActivityTracker.Forms
             this.cmdLogin.TabIndex = 4;
             this.cmdLogin.Text = "Login";
             this.cmdLogin.UseVisualStyleBackColor = true;
+            this.cmdLogin.Click += new System.EventHandler(this.cmdLogin_Click);
             // 
             // lblSignup
             // 

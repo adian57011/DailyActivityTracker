@@ -21,9 +21,27 @@ namespace DailyActivityTracker.Forms
             txtPass.TabStop = false;
         }
 
+        private bool Validate()
+        {
+            if (txtUser.Text == "")
+            {
+                MessageBox.Show("Enter username", "Error", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+                return false;
+            }
+            else if (txtPass.Text == "")
+            {
+                MessageBox.Show("Enter Login", "Error", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+                return false;
+            }
+
+            return true;
+        }
+
         private void lblSignup_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             Signup log = new Signup();
             log.ShowDialog();
         }
@@ -66,5 +84,12 @@ namespace DailyActivityTracker.Forms
             }
         }
 
+        private void cmdLogin_Click(object sender, EventArgs e)
+        {
+            if(Validate())
+            {
+
+            }
+        }
     }
 }

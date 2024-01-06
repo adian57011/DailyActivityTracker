@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DailyActivityTracker.BLL.Services;
+using DailyActivityTracker.DAL.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -116,7 +118,18 @@ namespace DailyActivityTracker.Forms
 
         private void cmdLogin_Click(object sender, EventArgs e)
         {
-             
+            User user = new User();
+            user.Username = txtUser.Text;
+            user.Password = txtPass.Text;
+
+            if(Facade.AuthServices.Signup(user))
+            {
+                MessageBox.Show("New user added", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("User add failed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

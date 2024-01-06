@@ -71,9 +71,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\Services\AuthService.cs" />
+    <Compile Include="BLL\Services\Facade.cs" />
     <Compile Include="DAL\DailyActivityContext.cs" />
-    <Compile Include="DAL\Models\Task.cs" />
+    <Compile Include="DAL\Models\Activity.cs" />
     <Compile Include="DAL\Models\User.cs" />
+    <Compile Include="DAL\Repos\AuthRepo.cs" />
     <Compile Include="DAL\Repos\Repo.cs" />
     <Compile Include="Forms\ExpenseTracker.cs">
       <SubType>Form</SubType>
@@ -117,8 +120,14 @@
     <Compile Include="Forms\Todo.Designer.cs">
       <DependentUpon>Todo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202401061154134_DBINIT.cs" />
+    <Compile Include="Migrations\202401061154134_DBINIT.designer.cs">
+      <DependentUpon>202401061154134_DBINIT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\Cipher.cs" />
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -130,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Todo.resx">
       <DependentUpon>Todo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202401061154134_DBINIT.resx">
+      <DependentUpon>202401061154134_DBINIT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -154,9 +166,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BLL\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Resources\HomeBack.png" />
   </ItemGroup>
