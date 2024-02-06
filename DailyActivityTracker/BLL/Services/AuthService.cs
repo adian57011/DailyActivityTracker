@@ -1,10 +1,5 @@
 ﻿using DailyActivityTracker.DAL.Models;
 using DailyActivityTracker.DAL.Repos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DailyActivityTracker.BLL.Services
 {

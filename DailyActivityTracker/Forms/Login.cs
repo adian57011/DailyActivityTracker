@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DailyActivityTracker.BLL.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +15,9 @@ namespace DailyActivityTracker.Forms
     {
         private static string user = "Enter username";
         private static string pass = "Enter password";
+
+        private string userName = String.Empty;
+        private string password = String.Empty;
         public Login()
         {
             InitializeComponent();
@@ -21,7 +25,7 @@ namespace DailyActivityTracker.Forms
             txtPass.TabStop = false;
         }
 
-        private bool Validate()
+        private new bool Validate()
         {
             if (txtUser.Text == "")
             {
@@ -36,14 +40,16 @@ namespace DailyActivityTracker.Forms
                 return false;
             }
 
+            userName = txtUser.Text;
+            password = txtPass.Text;
             return true;
         }
 
         private void lblSignup_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
             Signup log = new Signup();
-            log.ShowDialog();
+            log.ShowDialog();           
         }
 
         private void Login_Load(object sender, EventArgs e)
@@ -88,7 +94,16 @@ namespace DailyActivityTracker.Forms
         {
             if(Validate())
             {
-
+                if(!Facade.AuthServices.Login(userName, password))
+                {
+                    MessageBox.Show("No user exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    this.Hide();
+                    Main main = new Main();
+                    main.Show();
+                }
             }
         }
     }

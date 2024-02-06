@@ -19,12 +19,13 @@ namespace DailyActivityTracker.DAL.Repos
 
         public bool Login(string name,string pass)
         {
-            User user = db.Users.Where(x => x.Username == name && x.Password == Cipher.Decrypt(pass)).FirstOrDefault();
-            if(user == null)
+            List<User> users = db.Users.Where(x => x.Username == name).ToList();
+            foreach(User user in users )
             {
-                return false;
-            }
-            return true;
+                string decrypt = Cipher.Decrypt(user.Password);
+                if(pass == decrypt) { return true; }
+            }           
+            return false;
         }
 
     }

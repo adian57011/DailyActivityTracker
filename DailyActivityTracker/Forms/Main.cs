@@ -19,9 +19,14 @@ namespace DailyActivityTracker.Forms
 
         private void Main_Load(object sender, EventArgs e)
         {
+            
+        }
+
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Dispose();
             this.Close();
-            Login log = new Login();
-            log.ShowDialog();
+            Application.Exit();
         }
     }
 }

@@ -25,35 +25,6 @@ namespace DailyActivityTracker.Forms
             txtRetypePass.TabStop = false;
         }
 
-        private bool Validate()
-        {
-            if(txtUser.Text == "")
-            {
-                MessageBox.Show("Enter username", "Error", MessageBoxButtons.OK,
-                MessageBoxIcon.Error);
-                return false;
-            }
-            else if(txtPass.Text == "")
-            {
-                MessageBox.Show("Enter Login", "Error", MessageBoxButtons.OK,
-                MessageBoxIcon.Error);
-                return false;
-            }
-            else if(txtRetypePass.Text == "")
-            {
-                MessageBox.Show("Retype password", "Error", MessageBoxButtons.OK,
-                MessageBoxIcon.Error);
-                return false;
-            }
-            else if(txtPass.Text != txtRetypePass.Text)
-            {
-                MessageBox.Show("Passwords donot match", "Error", MessageBoxButtons.OK,
-                MessageBoxIcon.Error);
-                return false;
-            }
-            return true;
-        }
-
         private void label2_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -124,7 +95,12 @@ namespace DailyActivityTracker.Forms
 
             if(Facade.AuthServices.Signup(user))
             {
-                MessageBox.Show("New user added", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if(MessageBox.Show("New user added", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                {
+                    this.Hide();
+                    Login login = new Login();
+                    login.ShowDialog();
+                }
             }
             else
             {
