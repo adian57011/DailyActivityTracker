@@ -120,6 +120,11 @@
     <Compile Include="Forms\Todo.Designer.cs">
       <DependentUpon>Todo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202402061652264_DBINIT.cs" />
+    <Compile Include="Migrations\202402061652264_DBINIT.designer.cs">
+      <DependentUpon>202402061652264_DBINIT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\Cipher.cs" />
@@ -134,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Todo.resx">
       <DependentUpon>Todo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202402061652264_DBINIT.resx">
+      <DependentUpon>202402061652264_DBINIT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -158,9 +166,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Migrations\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Resources\HomeBack.png" />
   </ItemGroup>
